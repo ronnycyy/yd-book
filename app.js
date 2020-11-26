@@ -6,7 +6,17 @@ const initController = require('./controllers');  // 初始化路由
 const errorHandler = require('./middlewares/errorHandler');
 const staticServer = require('koa-static');  //静态资源（网页）
 var render = require('koa-swig');
+const log4js = require("log4js");
+
 const app = new Koa();
+
+// 错误日志记录
+log4js.configure({
+  appenders: { globalError: { type: "file", filename: "./logs/error.log" } },
+  categories: { default: { appenders: ["globalError"], level: "error" } }
+});
+ 
+const logger = log4js.getLogger("globalError");
 
 // swig 模板
 app.context.render = co.wrap(render({
@@ -19,7 +29,7 @@ app.context.render = co.wrap(render({
 // 中间件
 app.use(staticServer(config.staticDir));
 app.use(historyApiFallback({ index: '/', whiteList: ['/api'] }));  //除了/api的路由（取数据），其他都重定向到根
-errorHandler.error(app);
+errorHandler.error(app, logger);
 
 initController(app);
 

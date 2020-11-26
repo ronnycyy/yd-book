@@ -1,10 +1,11 @@
 class ErrorHandler {
-  static error(app) {
+  static error(app, logger) {
     // 500
     app.use(async (ctx, next) => {
       try {
         await next();
-      } catch {
+      } catch(err) {
+        logger.error(err);
         ctx.body = "500错误，正在积极修复";
       }
     });
