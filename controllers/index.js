@@ -1,7 +1,7 @@
-const Router = require('@koa/router');
-const IndexController = require('./IndexController');
+import Router from '@koa/router';
+import IndexController from './IndexController';
 const indexController = new IndexController();  //note:注意实例化 页面路由
-const ApiController = require('./ApiConttoller');
+import ApiController from './ApiConttoller';
 const apiController = new ApiController();  // 接口路由
 const router = new Router();
 
@@ -13,4 +13,4 @@ function initController(app){
     .use(router.routes())
     .use(router.allowedMethods());
 }
-module.exports = initController;
+export default initController;

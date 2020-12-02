@@ -3,4 +3,4 @@ class Controller{
     console.log('log');
   }
 }
-module.exports = Controller;
+export default Controller;

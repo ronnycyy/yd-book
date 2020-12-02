@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development nodemon ./app.js",
+    "start": "NODE_ENV=development nodemon --exec 'babel-node ./app.js'",
     "build": "babel ./assets/js/data.js -o ./assets/js/data_bundle.js"
   },
   "dependencies": {
@@ -18,7 +18,9 @@
   "devDependencies": {
     "@babel/cli": "^7.12.7",
     "@babel/core": "^7.12.7",
+    "@babel/node": "^7.12.6",
     "@babel/plugin-transform-modules-systemjs": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
     "nodemon": "^2.0.6"
   }
 }

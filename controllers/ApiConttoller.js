@@ -1,4 +1,5 @@
-const Controller = require("./Controller");
+import Controller from './Controller';
+
 class ApiController extends Controller {
   constructor() {
     super();
@@ -16,4 +17,4 @@ class ApiController extends Controller {
     ];
   }
 }
-module.exports = ApiController;
+export default ApiController;
