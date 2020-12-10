@@ -1,5 +1,6 @@
 import Controller from './Controller';
 
+// route in pages
 class IndexController extends Controller {
   constructor() {
     super();

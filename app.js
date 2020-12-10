@@ -45,5 +45,5 @@ errorHandler.error(app, logger);
 initController(app);
 
 app.listen(config.port, () => {
-  console.log(`server is running at ${config.port}`);
+  console.log('server is running at http://localhost:' + config.port);
 });
