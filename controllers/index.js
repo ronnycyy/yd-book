@@ -7,7 +7,7 @@ const router = new Router();
 
 function initController(app){
   router.get('/', indexController.actionIndex);
-  router.get('/api/getDataList', apiController.actionDataList);
+  router.get('/api/getBooksList', apiController.actionBooksList);
 
   app
     .use(router.routes())
