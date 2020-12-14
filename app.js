@@ -39,7 +39,8 @@ app.context.render = co.wrap(render({
 
 // 中间件
 app.use(staticServer(config.staticDir));
-app.use(historyApiFallback({ index: '/', whiteList: ['/api'] }));  //除了/api的路由（取数据），其他都重定向到根
+// 路由重定向，白名单中的路由不需要重定向到根
+app.use(historyApiFallback({ index: '/', whiteList: ['/api', '/books'] }));
 errorHandler.error(app, logger);
 
 initController(app);
