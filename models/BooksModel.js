@@ -5,10 +5,7 @@ import SafeRequest from '../utils/safeRequest';
 // connect with PHP (SQL)
 class BooksModel {
   getBooksList() {
-    return SafeRequest.fetch('http://localhost/server-books/web/index.php?r=books');
-  }
-  findBook(id) {
-    return SafeRequest.fetch('http://localhost/server-books/web/index.php?r=books');
+    return SafeRequest.fetch('http://localhost/yd-books/web/index.php?r=books');
   }
 }
 
